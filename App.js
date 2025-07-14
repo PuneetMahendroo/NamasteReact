@@ -1,22 +1,24 @@
-import React from "react"
-import ReactDOM from "react-dom/client"
+import ReactDOM from "react-dom/client";
 
-const heading = React.createElement("h1",{
-    id:"heading"
-},"Namaste World from React");
-
-const parent = React.createElement("div",{id:"parent",key:0},
-    [React.createElement("div",{id:"child1",key:6},
-    [    React.createElement("h1",{key:1},"This is a h1 tag")
-        ,React.createElement("h2",{key:2},"This is a h2 tag")]
-    ),
-    React.createElement("div",{id:"child2", key:5},
-    [    React.createElement("h1",{key:3},"This is Namaste React")
-        ,React.createElement("h2",{key:4},"By Akshay Saini")]
-    ),    
-]
+const headingElement = (
+    <div className="div">
+        <h1 className="head" tabIndex="2">Namaste-React from JSX inside ReactElement!</h1>
+    </div>
 );
+
+const Title =  () => <h1 className="Title" tabIndex="1">Namaste-React from JSX!!</h1>;
+
+const HeadingComponent = function() {
+    return (<div id="container">
+                {headingElement}
+                <Title />
+                {/* <Title></Title>
+                {Title()} */}
+                <h1 className="heading">Namaste-React from Functional Component</h1>
+            </div>
+)};
 
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(parent);
+
+root.render(<HeadingComponent />);
